@@ -1,20 +1,30 @@
-const btn = document.getElementById("btn");
-const errorEmailMsg = document.getElementsByClassName('emptyMensage')
+const form = document.querySelector(".formDiv");
+const emailInput = document.getElementById("emailAdress");
+const fullNameInput = document.getElementById("fullName");
+const githubUserInput = document.getElementById("githubUser");
 
-btn.addEventListener('click', (event)=>{
-    event.preventDefault();
-    const email = document.getElementById('emailAdress').value;
-    const emailRegex = /^[a-z0-9\._]+@[a-z]+\.[a-z]{2,3}$/;
-    if(!email.match(emailRegex)){
-        console.log("A");
-        
-    }
-})
+form.addEventListener("submit", (event) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const githubRegex = /^@[a-zA-Z0-9_-]{1,39}$/;
+    const nameRegex = /^[a-zA-Z\s]$/;
 
-const turnOnDisplay = (ele) => {
-    ele.style.display = 'inherit';
-}
+    const validateField = (input, regex, errorMessage) => {
+        const existingError = input.parentNode.querySelector(".error");
+        if (existingError) existingError.remove();
 
-const turnOffDisplay = (ele) => {
-    ele.style.display = 'none';
-}
+        if (!regex.test(input.value.trim())) {
+            event.preventDefault();
+            input.classList.add("inputItemError")
+            const errorText = document.createElement("span");
+            errorText.classList.add("error");
+            errorText.textContent = errorMessage;
+            input.parentNode.appendChild(errorText);
+        } else {
+            input.classList.remove("inputItemError");
+        }
+    };
+
+    validateField(emailInput, emailRegex, "Please enter a valid email address.");
+    validateField(fullNameInput, nameRegex, "Please enter a valid full name.");
+    validateField(githubUserInput, githubRegex, "Please enter a valid GitHub username (e.g., @username).");
+});
