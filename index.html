@@ -10,7 +10,6 @@
       href="./assets/images/favicon-32x32.png"
     >
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
     <title>Frontend Mentor | Conference ticket generator</title>
   </head>
   <body>
@@ -24,7 +23,7 @@
       </div>
     </header>
     <main>
-      <form class="formDiv">
+      <form class="formDiv" action="">
         <div class="formItem">
           <p>Upload Avatar</p>
           <label for="fileUp" class="inpUpLoad">
@@ -39,7 +38,7 @@
         </div>
         <div class="formItem">
           <label for="fullName">Full Name</label>
-          <input type="text" name="fullName" id="fullName" required>
+          <input type="text" name="fullName" id="fullName" >
         </div>
         <div class="formItem">
           <label for="emailAdress">Email Adress</label>
@@ -58,11 +57,11 @@
             name="githubUser"
             id="githubUser"
             placeholder="@yourusername"
-            required
           >
         </div>
         <input class="submitBtn" id="btn" type="submit" value="Generate My Ticket">
       </form>
     </main>
+    <script src="script.js"></script>
   </body>
 </html>
