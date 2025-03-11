@@ -6,7 +6,7 @@ const githubUserInput = document.getElementById("githubUser");
 form.addEventListener("submit", (event) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const githubRegex = /^@[a-zA-Z0-9_-]{1,39}$/;
-    const nameRegex = /^[a-zA-Z\s]$/;
+    const nameRegex = /^[a-zA-Z\s]+$/;
 
     const validateField = (input, regex, errorMessage) => {
         const existingError = input.parentNode.querySelector(".error");
