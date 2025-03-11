@@ -38,7 +38,7 @@ header{
     flex-direction: column;
 }
 
-.formItem>input{
+.inputItem{
     color: hsl(0, 0%, 100%);
     background-color: hsla(245, 19%, 35%,50%);
     border: 1px solid hsl(245, 15%, 58%);
@@ -47,7 +47,11 @@ header{
     height: 3rem;
 }
 
-.formItem>input:hover, .inpUpLoad:hover{
+.inputItemError{
+    border: 1px solid hsl(0, 100.00%, 50.00%) !important;
+}
+
+.inputItem:hover, .inpUpLoad:hover{
     transition: 1s;
     background-color: hsl(245, 15%, 58%);
 }
@@ -100,10 +104,10 @@ header{
     background-color: hsl(7, 71%, 60%);
 }
 
-.emptyMensage {
-    display: none;
+.error {
+    display: inherit;
     color: red;
     font-style: oblique;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 12pt;
 }
