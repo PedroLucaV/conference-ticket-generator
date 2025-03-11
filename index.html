@@ -15,7 +15,7 @@
   <body>
     <header>
       <img src="./assets/images/logo-full.svg" class="logo" alt="">
-      <div>
+      <div class="titleBox">
         <h1 class="title">Your Journey to Coding Conf 2025 Starts Here!</h1>
         <h4 class="subTitle">
           Secure your spot at next year's biggest coding conference.
@@ -23,26 +23,26 @@
       </div>
     </header>
     <main>
-      <form class="formDiv" action="">
+      <form class="formDiv" action="./generated.html">
         <div class="formItem">
-          <p>Upload Avatar</p>
-          <label for="fileUp" class="inpUpLoad">
+          <p class="labelInput">Upload Avatar</p>
+          <label for="fileUp" class="inpUpLoad" id="inpUpLoad">
             <img src="assets/images/icon-upload.svg" alt="" class="upFoto">
             <span>Drag and drop or click to upload</span>
           </label>
           <input type="file" name="fileUp" id="fileUp" class="inpFile">
           <div class="lilText">
-            <img src="./assets/images/icon-info.svg" alt="">
-            <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
+            <img id="iconInfo" src="./assets/images/icon-info.svg" alt="">
+            <p id="textBellow">Upload your photo (JPG or PNG, max size: 500KB).</p>
           </div>
         </div>
-        <div class="formItem">
-          <label for="fullName">Full Name</label>
+        <div class="formItem gapItem">
+          <label class="labelInput" for="fullName">Full Name</label>
           <input
           class="inputItem" type="text" name="fullName" id="fullName" >
         </div>
-        <div class="formItem">
-          <label for="emailAdress">Email Adress</label>
+        <div class="formItem gapItem">
+          <label class="labelInput" for="emailAdress">Email Adress</label>
           <input
           class="inputItem"
             type="text"
@@ -51,8 +51,8 @@
             placeholder="example@email.com"
           >
         </div>
-        <div class="formItem">
-          <label for="githubUser">GitHub User</label>
+        <div class="formItem gapItem">
+          <label class="labelInput" for="githubUser">GitHub User</label>
           <input
           class="inputItem"
             type="text"

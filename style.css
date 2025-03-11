@@ -1,3 +1,12 @@
+@font-face {
+    font-family: Inconsolata;
+    src: url('./assets/fonts/Inconsolata-VariableFont_wdth,wght.ttf');
+}
+
+*{
+    font-family: Inconsolata;
+}
+
 html{
     margin: 0;
     width: 100vw;
@@ -19,17 +28,60 @@ header{
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     color: hsl(0, 0%, 100%);
+    gap: 1rem;
+}
+
+.form{
+    width: 100vw;
+}
+
+.titleBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.title{
+    margin: 0;
+    width: 70%;
+    text-align: center;
+    font-size: 32pt;
+}
+
+.labelInput{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.gapItem{
+    gap:1rem
+}
+
+.subTitle{
+    text-align: center;
+    font-size: 16pt;
+    font-weight: 300;
 }
 
 .logo{
     align-self: center;
 }
 
+.ticket{
+    display: none;
+}
+
 .formDiv{
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .formItem{
@@ -48,7 +100,7 @@ header{
 }
 
 .inputItemError{
-    border: 1px solid hsl(0, 100.00%, 50.00%) !important;
+    border: 1px solid hsl(7, 71%, 60%) !important;
 }
 
 .inputItem:hover, .inpUpLoad:hover{
@@ -70,7 +122,7 @@ header{
     border-radius: 1rem;
     color: hsl(0, 0%, 100%);
     width: 500px;
-    height: 6rem;
+    height: 10rem;
 }
 
 .upFoto{
@@ -83,13 +135,13 @@ header{
 .lilText{
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 8px;
     font-size: 8pt;
     color: hsl(0, 0, 100%);
 }
 
 .submitBtn{
-    width: 100%;
+    width: 500px;
     background-color: hsl(7, 88%, 67%);
     height: 3rem;
     border: none;
@@ -104,10 +156,36 @@ header{
     background-color: hsl(7, 71%, 60%);
 }
 
-.error {
-    display: inherit;
-    color: red;
-    font-style: oblique;
-    font-weight: 500;
+.lilText{
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-size: 12pt;
+    font-weight: 300;
+    color: hsl(0, 0, 100%);
+    margin-bottom: -1.5rem;
+}
+
+.error-container {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    font-size: 12pt;
+    font-weight: 300;
+    align-items: center;
+    color: hsl(7, 71%, 60%);
+    gap: 8px;
+}
+
+.errorText{
+    margin: 0;
+}
+
+.emptyValue {
+    outline: 2px solid hsl(245, 15%, 58%);
+    outline-offset: 2px;
+}
+
+#iconInfo{
+    fill: red;
 }
