@@ -142,14 +142,6 @@ header{
     width: 2rem;
 }
 
-.lilText{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 8pt;
-    color: hsl(0, 0, 100%);
-}
-
 .submitBtn{
     width: 500px;
     background-color: hsl(7, 88%, 67%);
@@ -213,3 +205,52 @@ header{
     gap: 1rem;
 }
 
+@media screen and (max-width: 550px) {
+    html{
+        background-image: url('./assets/images/background-mobile.png');
+        background-position: center;
+        background-size: cover;
+    }
+    header{
+        max-width: 100%;
+    }
+    main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .formDiv{
+        width: 100vw;
+        max-width: 90%;
+    }
+
+    .inpUpLoad{
+        width: 100%;
+    }
+
+    .formItem{
+        width: 100%;
+    }
+
+    .inputItem{
+        width: 100%;
+    }
+
+    .submitBtn{
+        width: 100%;
+    }
+
+    .title{
+        width: 100%;
+        font-size: 20pt;
+    }
+    .subTitle{
+        width: 100%;
+        font-size: 14pt;
+        font-weight: 300;
+    }
+
+    .lilText{
+        font-size: 9pt;
+    }
+}

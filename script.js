@@ -7,7 +7,6 @@ const fileInputDesign = document.getElementById("inpUpLoad");
 const textBellow = document.getElementById("textBellow");
 
 fileInput.addEventListener("change", function () {
-    const icon = document.getElementById("iconInfo");
     const file = fileInput.files[0];
 
     const setMessage = (msg, isError = false) => {
