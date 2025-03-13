@@ -5,7 +5,6 @@ const githubUserInput = document.getElementById("githubUser");
 const fileInput = document.getElementById("fileUp");
 const fileInputDesign = document.getElementById("inpUpLoad");
 const textBellow = document.getElementById("textBellow");
-
 fileInput.addEventListener("change", function () {
     const icon = document.getElementById("iconInfo");
     const file = fileInput.files[0];
@@ -52,9 +51,8 @@ fileInput.addEventListener("change", function () {
     reader.readAsDataURL(file);
 });
 
-
-
 form.addEventListener("submit", (event) => {
+    const file = fileInput.files[0];
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const githubRegex = /^@[a-zA-Z0-9_-]{1,39}$/;
     const nameRegex = /^[a-zA-Z\s]+$/;
@@ -87,5 +85,13 @@ form.addEventListener("submit", (event) => {
     validateField(emailInput, emailRegex, "Please enter a valid email address.");
     validateField(fullNameInput, nameRegex, "Please enter a valid full name.");
     validateField(githubUserInput, githubRegex, "Please enter a valid GitHub username (e.g., @username).");
-    
+    if (!file){
+        event.preventDefault();
+    };
+    if (!["image/jpeg", "image/png"].includes(file.type)){ 
+        event.preventDefault();
+    }
+    if (file.size > 500 * 1024) {
+        event.preventDefault();
+    }
 });
