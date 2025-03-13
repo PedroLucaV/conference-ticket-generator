@@ -13,57 +13,91 @@
     <title>Frontend Mentor | Conference ticket generator</title>
   </head>
   <body>
-    <header>
-      <img src="./assets/images/logo-full.svg" class="logo" alt="">
-      <div class="titleBox">
-        <h1 class="title">Your Journey to Coding Conf 2025 Starts Here!</h1>
-        <h4 class="subTitle">
-          Secure your spot at next year's biggest coding conference.
-        </h4>
-      </div>
-    </header>
-    <main>
-      <form class="formDiv">
-        <div class="formItem">
-          <p class="labelInput">Upload Avatar</p>
-          <label for="fileUp" class="inpUpLoad" id="inpUpLoad">
-            <img src="assets/images/icon-upload.svg" alt="" class="upFoto">
-            <span>Drag and drop or click to upload</span>
-          </label>
-          <input type="file" name="fileUp" id="fileUp" class="inpFile">
-          <div class="lilText">
-            <img id="iconInfo" src="./assets/images/icon-info.svg" alt="">
-            <p id="textBellow">Upload your photo (JPG or PNG, max size: 500KB).</p>
+    <img src="./assets/images/logo-full.svg" class="logo" alt="">
+    <div id="formMain">
+      <header>
+        <div class="titleBox">
+          <h1 class="title">Your Journey to Coding Conf 2025 Starts Here!</h1>
+          <h4 class="subTitle">
+            Secure your spot at next year's biggest coding conference.
+          </h4>
+        </div>
+      </header>
+      <main>
+        <form class="formDiv" onsubmit="">
+          <div class="formItem">
+            <p class="labelInput">Upload Avatar</p>
+            <label for="fileUp" class="inpUpLoad" id="inpUpLoad">
+              <img src="assets/images/icon-upload.svg" alt="" class="upFoto">
+              <span>Drag and drop or click to upload</span>
+            </label>
+            <input type="file" name="fileUp" id="fileUp" class="inpFile">
+            <div class="lilText">
+              <img id="iconInfo" src="./assets/images/icon-info.svg" alt="">
+              <p id="textBellow">Upload your photo (JPG or PNG, max size: 500KB).</p>
+            </div>
+          </div>
+          <div class="formItem gapItem">
+            <label class="labelInput" for="fullName">Full Name</label>
+            <input
+            class="inputItem" type="text" name="fullName" id="fullName" >
+          </div>
+          <div class="formItem gapItem">
+            <label class="labelInput" for="emailAdress">Email Adress</label>
+            <input
+            class="inputItem"
+              type="text"
+              name="emailAdress"
+              id="emailAdress"
+              placeholder="example@email.com"
+            >
+          </div>
+          <div class="formItem gapItem">
+            <label class="labelInput" for="githubUser">GitHub User</label>
+            <input
+            class="inputItem"
+              type="text"
+              name="githubUser"
+              id="githubUser"
+              placeholder="@yourusername"
+            >
+          </div>
+          <input class="submitBtn" id="btn" type="submit" value="Generate My Ticket">
+        </form>
+      </main>
+    </div>
+    <div id="ticket-generated" class="ticket-generated">
+        <header class="titleBox-ticket">
+          <h1 class="title title-ticket">Congrats, <span id="name" class="name-gradient">Pedro Lucas</span>! Your ticket is ready.</h1>
+          <h4 class="subTitle subtitle-ticket">We've mailed yout ticket to <span id="email" class="email-text">jonatan@email.com</span> and will send updates in the run up to the event</h4>
+        </header>
+        <div>
+          <div class="ticket-bg">
+            <div class="itens-ticket">
+              <div>
+                <img src="./assets/images/logo-full.svg" alt="">
+                <p>Jan 31, 2025 / Austin, Tx</p>
+              </div>
+              <div class="data-user">
+                <img id="img-ticket" src="./assets/images/image-avatar.jpg" class="img-ticket" alt="">
+                <div class="data-text">
+                  <p id="name1">Pedro</p>
+                  <p id="github"><span><img src="assets/images/icon-github.svg" alt=""></span>@Pedro</p>
+                </div>
+              </div>
+            </div>
+            <div class="number-ticket">
+              <p>#01609</p>
+            </div>
           </div>
         </div>
-        <div class="formItem gapItem">
-          <label class="labelInput" for="fullName">Full Name</label>
-          <input
-          class="inputItem" type="text" name="fullName" id="fullName" >
-        </div>
-        <div class="formItem gapItem">
-          <label class="labelInput" for="emailAdress">Email Adress</label>
-          <input
-          class="inputItem"
-            type="text"
-            name="emailAdress"
-            id="emailAdress"
-            placeholder="example@email.com"
-          >
-        </div>
-        <div class="formItem gapItem">
-          <label class="labelInput" for="githubUser">GitHub User</label>
-          <input
-          class="inputItem"
-            type="text"
-            name="githubUser"
-            id="githubUser"
-            placeholder="@yourusername"
-          >
-        </div>
-        <input class="submitBtn" id="btn" type="submit" value="Generate My Ticket">
-      </form>
-    </main>
+    </div>
+    <footer>
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="https://github.com/PedroLucaV" target="_blank">Pedro Lucas</a>.
+      </div>
+    </footer>
     <script src="script.js" defer></script>
   </body>
 </html>

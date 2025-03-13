@@ -34,6 +34,11 @@ header{
     gap: 1rem;
 }
 
+.attribution{
+    margin-top: 1rem;
+    color: white;
+}
+
 .form{
     width: 100vw;
 }
@@ -203,6 +208,107 @@ header{
     justify-content: center;
     flex-direction: column;
     gap: 1rem;
+}
+
+.ticket-generated{
+    display: none;
+    flex-direction: column;
+    color: white;
+    width: 100vw;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.titleBox-ticket{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 650px;
+}
+
+.title-ticket{
+    font-size: 40pt;
+    width: 100%;
+    text-align: center;
+}
+
+.name-gradient{
+    background-image: linear-gradient(to right,hsl(7, 86%, 67%), hsl(0, 0%, 100%));
+    color: transparent;
+    background-clip: text;
+}
+
+.email-text{
+    color: hsl(7, 88%, 67%);
+}
+
+.subtitle-ticket{
+    font-size: 16pt;
+    width: 400px;
+}
+
+.ticket-bg{
+    background-image: url('./assets/images/pattern-ticket.svg');
+    width: 600px;
+    height: 200px;
+    display: flex;  
+
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: space-around;
+    gap: 4rem;
+    padding: 1rem;
+}
+
+.number-ticket{
+    writing-mode: vertical-lr;
+    opacity: 50%;
+    font-size: 16pt;
+}
+
+.img-ticket{
+    width: 75px;
+    border-radius: 10px;
+}
+
+.data-user{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    height: 75px;
+}
+
+.itens-ticket{
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.data-text>p{
+    margin: 0;
+}
+.data-text{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5rem;
+}
+
+#name1{
+    font-size: 18pt;
+}
+
+#github{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 300;
 }
 
 @media screen and (max-width: 550px) {

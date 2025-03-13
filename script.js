@@ -5,6 +5,28 @@ const githubUserInput = document.getElementById("githubUser");
 const fileInput = document.getElementById("fileUp");
 const fileInputDesign = document.getElementById("inpUpLoad");
 const textBellow = document.getElementById("textBellow");
+const ticket = document.getElementById("ticket-generated");
+const formMain = document.getElementById("formMain");
+const nameShow = document.getElementById("name");
+const emailShow = document.getElementById("email");
+const github = document.getElementById('github');
+const nameShow1 = document.getElementById("name1");
+const imgTicket = document.getElementById("img-ticket");
+
+const showTicket = (event) => {
+    event.preventDefault()
+    ticket.style.display = 'flex';
+    formMain.style.display = 'none';
+    nameShow.innerText = fullNameInput.value;
+    nameShow1.innerText = fullNameInput.value;
+    github.innerText = githubUserInput.value;
+    email.innerText = emailInput.value;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        imgTicket.src = e.target.result
+    }
+    reader.readAsDataURL(fileInput.files[0])
+}
 
 fileInput.addEventListener("change", function () {
     const file = fileInput.files[0];
@@ -126,4 +148,6 @@ form.addEventListener("submit", (event) => {
         return setMessage("File too large. Please upload a photo under 500KB.", true)
     }
     setMessage("Upload your photo (JPG or PNG, max size: 500KB).");
+    event.preventDefault()
+    showTicket(event)
 });
