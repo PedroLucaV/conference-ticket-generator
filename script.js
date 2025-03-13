@@ -5,13 +5,22 @@ const githubUserInput = document.getElementById("githubUser");
 const fileInput = document.getElementById("fileUp");
 const fileInputDesign = document.getElementById("inpUpLoad");
 const textBellow = document.getElementById("textBellow");
+
 fileInput.addEventListener("change", function () {
     const icon = document.getElementById("iconInfo");
     const file = fileInput.files[0];
 
     const setMessage = (msg, isError = false) => {
+        if(isError){
+            fileInputDesign.classList.remove('inpUpLoadEmpty')
+            fileInputDesign.classList.add('inpUpLoadError')
+            textBellow.innerText = msg;
+            return textBellow.style.color = "hsl(7, 71%, 60%)";
+        }
+        fileInputDesign.classList.remove('inpUpLoadError')
         textBellow.innerText = msg;
-        textBellow.style.color = icon.style.color = isError ? "hsl(7, 71%, 60%)" : "";
+        textBellow.style.color = "#fff";
+        
     };
 
     const resetUploadUI = () => {
@@ -52,6 +61,26 @@ fileInput.addEventListener("change", function () {
 });
 
 form.addEventListener("submit", (event) => {
+    const setMessage = (msg, isError = false, isEmpty = false) => {
+        if(isEmpty){
+            fileInputDesign.classList.remove('inpUpLoadError')
+            fileInputDesign.classList.add('inpUpLoadEmpty')
+            textBellow.innerText = msg;
+            return textBellow.style.color = "hsl(7, 71%, 60%)";
+        }
+        if(isError){
+            fileInputDesign.classList.remove('inpUpLoadEmpty')
+            fileInputDesign.classList.add('inpUpLoadError')
+            textBellow.innerText = msg;
+            return textBellow.style.color = "hsl(7, 71%, 60%)";
+        }
+        if(!isError && !isEmpty){
+            textBellow.innerText = msg;
+            fileInputDesign.classList.remove('inpUpLoadEmpty')
+            fileInputDesign.classList.remove('inpUpLoadError')
+        }
+    };
+
     const file = fileInput.files[0];
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const githubRegex = /^@[a-zA-Z0-9_-]{1,39}$/;
@@ -87,11 +116,15 @@ form.addEventListener("submit", (event) => {
     validateField(githubUserInput, githubRegex, "Please enter a valid GitHub username (e.g., @username).");
     if (!file){
         event.preventDefault();
+        return setMessage("Please input a file before continue", false, true)
     };
     if (!["image/jpeg", "image/png"].includes(file.type)){ 
         event.preventDefault();
+        return setMessage("Invalid file type. Upload JPG, PNG", true)
     }
     if (file.size > 500 * 1024) {
         event.preventDefault();
+        return setMessage("File too large. Please upload a photo under 500KB.", true)
     }
+    setMessage("Upload your photo (JPG or PNG, max size: 500KB).");
 });
