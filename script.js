@@ -4,11 +4,11 @@ const fullNameInput = document.getElementById("fullName");
 const githubUserInput = document.getElementById("githubUser");
 const fileInput = document.getElementById("fileUp");
 const fileInputDesign = document.getElementById("inpUpLoad");
+const textBellow = document.getElementById("textBellow");
 
-fileInput.addEventListener("change", function (event) {
-    const textBellow = document.getElementById("textBellow");
+fileInput.addEventListener("change", function () {
     const icon = document.getElementById("iconInfo");
-    const file = event.target.files[0];
+    const file = fileInput.files[0];
 
     const setMessage = (msg, isError = false) => {
         textBellow.innerText = msg;
@@ -23,11 +23,15 @@ fileInput.addEventListener("change", function (event) {
         setMessage("Upload your photo (JPG or PNG, max size: 500KB)");
     };
 
-    if (!file) return resetUploadUI();
-    if (!["image/jpeg", "image/png"].includes(file.type)) 
-        return setMessage("Invalid file type. Upload JPG, PNG, or WEBP.", true);
-    if (file.size > 500 * 1024) 
+    if (!file){
+        return resetUploadUI()
+    };
+    if (!["image/jpeg", "image/png"].includes(file.type)){ 
+        return setMessage("Invalid file type. Upload JPG, PNG", true);
+    }
+    if (file.size > 500 * 1024) {
         return setMessage("File too large. Please upload a photo under 500KB.", true);
+    }
 
     setMessage("Upload your photo (JPG or PNG, max size: 500KB).");
 
@@ -83,5 +87,5 @@ form.addEventListener("submit", (event) => {
     validateField(emailInput, emailRegex, "Please enter a valid email address.");
     validateField(fullNameInput, nameRegex, "Please enter a valid full name.");
     validateField(githubUserInput, githubRegex, "Please enter a valid GitHub username (e.g., @username).");
-    validateFileSize(fileInput, fileInputDesign);
+    
 });
