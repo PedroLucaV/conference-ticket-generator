@@ -35,7 +35,8 @@ header{
 }
 
 .attribution{
-    margin-top: 1rem;
+    margin: 1rem 0 2rem 0;
+    text-align: center;
     color: white;
 }
 
@@ -75,6 +76,7 @@ header{
 
 .logo{
     align-self: center;
+    margin: 1rem;
 }
 
 .ticket{
@@ -358,5 +360,49 @@ header{
 
     .lilText{
         font-size: 9pt;
+    }
+
+    .ticket-bg{
+        width: 330px;
+    }
+
+    .img-ticket{
+        width: 50px;
+    }
+    
+    .data-user{
+        gap: 1rem;
+        height: 50px;
+    }
+    
+    .itens-ticket{
+        gap: 1rem;
+    }
+    
+    .data-text{
+        gap: 0.5rem;
+    }
+    
+    #name1{
+        font-size: 16pt;
+    }
+    
+    #github{
+        font-size: 10pt;
+    }
+
+    .subtitle-ticket{
+        font-size: 14pt;
+        width: 330px;
+    }
+
+    .titleBox-ticket{
+        width: 650px;
+    }
+    
+    .title-ticket{
+        font-size: 20pt;
+        width: 80%;
+        text-align: center;
     }
 }

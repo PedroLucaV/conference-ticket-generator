@@ -82,36 +82,39 @@ fileInput.addEventListener("change", function () {
 });
 
 form.addEventListener("submit", (event) => {
+    let isValid = true; 
+
     const setMessage = (msg, isError = false, isEmpty = false) => {
         if(isEmpty){
             fileInputDesign.classList.remove('inpUpLoadError')
             fileInputDesign.classList.add('inpUpLoadEmpty')
             textBellow.innerText = msg;
-            return textBellow.style.color = "hsl(7, 71%, 60%)";
+            textBellow.style.color = "hsl(7, 71%, 60%)";
+            return;
         }
         if(isError){
             fileInputDesign.classList.remove('inpUpLoadEmpty')
             fileInputDesign.classList.add('inpUpLoadError')
             textBellow.innerText = msg;
-            return textBellow.style.color = "hsl(7, 71%, 60%)";
+            textBellow.style.color = "hsl(7, 71%, 60%)";
+            return;
         }
-        if(!isError && !isEmpty){
-            textBellow.innerText = msg;
-            fileInputDesign.classList.remove('inpUpLoadEmpty')
-            fileInputDesign.classList.remove('inpUpLoadError')
-        }
+        fileInputDesign.classList.remove('inpUpLoadEmpty')
+        fileInputDesign.classList.remove('inpUpLoadError')
+        textBellow.innerText = msg;
     };
 
     const file = fileInput.files[0];
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const githubRegex = /^@[a-zA-Z0-9_-]{1,39}$/;
     const nameRegex = /^[a-zA-Z\s]+$/;
+
     const validateField = (input, regex, errorMessage) => {
         const existingError = input.parentNode.querySelector(".error-container");
         if (existingError) existingError.remove();
 
         if (!regex.test(input.value.trim())) {
-            event.preventDefault();
+            isValid = false;
             input.classList.add("inputItemError");
 
             const errorContainer = document.createElement("div");
@@ -135,19 +138,25 @@ form.addEventListener("submit", (event) => {
     validateField(emailInput, emailRegex, "Please enter a valid email address.");
     validateField(fullNameInput, nameRegex, "Please enter a valid full name.");
     validateField(githubUserInput, githubRegex, "Please enter a valid GitHub username (e.g., @username).");
-    if (!file){
-        event.preventDefault();
-        return setMessage("Please input a file before continue", false, true)
-    };
-    if (!["image/jpeg", "image/png"].includes(file.type)){ 
-        event.preventDefault();
-        return setMessage("Invalid file type. Upload JPG, PNG", true)
+
+    if (!file) {
+        isValid = false;
+        setMessage("Please input a file before continue", false, true);
+    } else if (!["image/jpeg", "image/png"].includes(file.type)) {
+        isValid = false;
+        setMessage("Invalid file type. Upload JPG, PNG", true);
+    } else if (file.size > 500 * 1024) {
+        isValid = false;
+        setMessage("File too large. Please upload a photo under 500KB.", true);
+    } else {
+        setMessage("Upload your photo (JPG or PNG, max size: 500KB).");
     }
-    if (file.size > 500 * 1024) {
+
+    if (!isValid) {
         event.preventDefault();
-        return setMessage("File too large. Please upload a photo under 500KB.", true)
+        return;
     }
-    setMessage("Upload your photo (JPG or PNG, max size: 500KB).");
-    event.preventDefault()
-    showTicket(event)
+
+    event.preventDefault();
+    showTicket(event);
 });
