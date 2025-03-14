@@ -14,12 +14,18 @@ html{
     box-sizing: border-box;
     padding: 0;
     background-image:url('./assets/images/background-desktop.png');
-    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    max-width: 100%;
 }
 
 body{
+    margin: 0;
     display: flex;
     align-items: center;
+    max-width: 100vw;
+    overflow-x: hidden;
     justify-content: center;
     flex-direction: column;
 }
@@ -34,9 +40,62 @@ header{
     gap: 1rem;
 }
 
+.image-container {
+    align-self: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    display: grid;
+}
+
+.svg-image {
+    position: absolute;
+}
+
+.svg-image:nth-child(1){
+    width: 100%;
+}
+
+.svg-image:nth-child(1) img{
+    width: 100%;
+}
+
+.svg-image:nth-child(2){
+    top: 100px;
+    right: 0;
+}
+
+.svg-image:nth-child(3){
+    left: 0;
+    bottom: 0;
+}
+
+.svg-image:nth-child(4){
+    top: -100px;
+    left: 100px;
+}
+
+.svg-image:nth-child(5){
+    top: 50%;
+    right: 350px;
+}
+
+.svg-image:nth-child(6){
+    display: none;
+    left: 0;
+    bottom: 0;
+}
+
 .attribution{
     margin: 1rem 0 2rem 0;
     text-align: center;
+    color: white;
+}
+
+.attribution a{
     color: white;
 }
 
@@ -313,11 +372,51 @@ header{
     font-weight: 300;
 }
 
+@media screen and (max-width: 768px) {
+
+    .svg-image:nth-child(2){
+        top: 50px;
+    }
+    .svg-image:nth-child(3){
+        display: none;
+    }
+
+    .svg-image:nth-child(4){
+        left: -100px;
+    }
+
+    .svg-image:nth-child(5){
+        right: -100px;
+    }
+
+    .svg-image:nth-child(6){
+        display: block;
+    }
+
+    .img-Line{
+        width: 400px;
+    }
+
+    .img-line-top{
+        width: 300px;
+    }
+}
+
 @media screen and (max-width: 550px) {
+    .svg-image:nth-child(2){
+        top: 50px;
+    }
+
+    .img-Line{
+        width: 300px;
+    }
+
+    .img-line-top{
+        width: 100px;
+    }
     html{
         background-image: url('./assets/images/background-mobile.png');
-        background-position: center;
-        background-size: cover;
+
     }
     header{
         max-width: 100%;
